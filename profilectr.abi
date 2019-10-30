@@ -3,7 +3,7 @@
     "version": "eosio::abi/1.1",
     "types": [
         {
-            "new_type_name": "addresst",
+            "new_type_name": "address_t",
             "type": "address"
         },
         {
@@ -11,11 +11,11 @@
             "type": "string"
         },
         {
-            "new_type_name": "languaget",
+            "new_type_name": "language_t",
             "type": "language"
         },
         {
-            "new_type_name": "platformt",
+            "new_type_name": "platform_t",
             "type": "platform"
         }
     ],
@@ -39,16 +39,6 @@
             ]
         },
         {
-            "name": "erase",
-            "base": "",
-            "fields": [
-                {
-                    "name": "user",
-                    "type": "name"
-                }
-            ]
-        },
-        {
             "name": "insert",
             "base": "",
             "fields": [
@@ -66,7 +56,7 @@
                 },
                 {
                     "name": "location",
-                    "type": "addresst"
+                    "type": "address_t"
                 },
                 {
                     "name": "img",
@@ -74,11 +64,11 @@
                 },
                 {
                     "name": "languages",
-                    "type": "languaget[]"
+                    "type": "language_t[]"
                 },
                 {
                     "name": "platforms",
-                    "type": "platformt[]"
+                    "type": "platform_t[]"
                 }
             ]
         },
@@ -97,20 +87,6 @@
             ]
         },
         {
-            "name": "notify",
-            "base": "",
-            "fields": [
-                {
-                    "name": "user",
-                    "type": "name"
-                },
-                {
-                    "name": "msg",
-                    "type": "string"
-                }
-            ]
-        },
-        {
             "name": "platform",
             "base": "",
             "fields": [
@@ -123,68 +99,16 @@
                     "type": "string"
                 }
             ]
-        },
-        {
-            "name": "user",
-            "base": "",
-            "fields": [
-                {
-                    "name": "key",
-                    "type": "name"
-                },
-                {
-                    "name": "display_name",
-                    "type": "string"
-                },
-                {
-                    "name": "ipfs_about_me",
-                    "type": "ipfshash_t"
-                },
-                {
-                    "name": "location",
-                    "type": "addresst"
-                },
-                {
-                    "name": "ipfs_img",
-                    "type": "ipfshash_t"
-                },
-                {
-                    "name": "languages",
-                    "type": "languaget[]"
-                },
-                {
-                    "name": "platforms",
-                    "type": "platformt[]"
-                }
-            ]
         }
     ],
     "actions": [
         {
-            "name": "erase",
-            "type": "erase",
-            "ricardian_contract": ""
-        },
-        {
             "name": "insert",
             "type": "insert",
             "ricardian_contract": ""
-        },
-        {
-            "name": "notify",
-            "type": "notify",
-            "ricardian_contract": ""
         }
     ],
-    "tables": [
-        {
-            "name": "profiletbl",
-            "type": "user",
-            "index_type": "i64",
-            "key_names": [],
-            "key_types": []
-        }
-    ],
+    "tables": [],
     "ricardian_clauses": [],
     "variants": []
 }

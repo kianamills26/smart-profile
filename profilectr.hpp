@@ -21,70 +21,34 @@ typedef struct address{
     std::string city;
     std::string state;
     std::string country;
-} addresst;
+} address_t;
 
 typedef struct language{
     std::string lang_code;
     int level; // 0-3
-} languaget;
+} language_t;
 
 typedef struct platform{
     std::string platform;
     std::string url;
-} platformt;
+} platform_t;
 
-class [[eosio::contract("profile")]] profile: public eosio::contract {
+class [[eosio::contract("profilectr")]] profilectr: public eosio::contract {
 public:
     
     using ipfshash_t = std::string;
     
-    profile( name receiver, name code, datastream<const char*> ds ) : contract(receiver, code, ds) {}
+    profilectr( name receiver, name code, datastream<const char*> ds ) : contract(receiver, code, ds) {}
     
     // ABI FUNCTIONS
     [[eosio::action]]
     void insert(name user,
                 std::string display_name,
                 ipfshash_t about_me,
-                addresst location,
+                address_t location,
                 ipfshash_t img,
-                std::vector<languaget> languages,
-                std::vector<platformt> platforms);
-    
-    [[eosio::action]]
-    void erase(name user);
-
-    [[eosio::action]]
-    void notify(name user, std::string msg) {
-        require_auth(get_self());
-        require_recipient(user);
-    }
-    
-private:
-    // DATABASE SCHEMAS
-    struct [[eosio::table]] user {
-        name key;
-        std::string display_name;
-        ipfshash_t ipfs_about_me; //IPFS hash of About Me
-        addresst location; // Struct of location
-        ipfshash_t ipfs_img;  //IPFS hash of profile image
-        std::vector<languaget> languages; // Struct of languages and level pairs
-        std::vector<platformt> platforms; // Struct of platform and url pairs
-        
-        uint64_t primary_key() const { return key.value; }
-        std::string get_name() const { return display_name; }
-    };
-  
-    typedef eosio::multi_index<"profiletbl"_n, user > profile_index;
-    
-    void send_summary(name user, std::string message) {
-        action(
-               permission_level{get_self(), "active"_n },
-               get_self(),
-               "notify"_n,
-               std::make_tuple(user, name{user}.to_string() + message )
-               ).send();
-    }
-    
-    
+                std::vector<language_t> languages,
+                std::vector<platform_t> platforms);
+   
 };
 

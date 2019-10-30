@@ -1,16 +1,11 @@
-#include "profile.hpp"
+#include "profilectr.hpp"
 
 using namespace eosio;
 
 [[eosio::action]]
-void profile::insert(name user, std::string display_name, ipfshash_t about_me, addresst location, ipfshash_t img, std::vector<languaget> languages, std::vector<platformt> platforms) {
+void profilectr::insert(name user, std::string display_name, ipfshash_t about_me, address_t location, ipfshash_t img, std::vector<language_t> languages, std::vector<platform_t> platforms) {
     
     require_auth( user );
-
-    // Check User already exists
-    profile_index profiletbl(get_self(), _self.value);
-    auto iterator = profiletbl.find(user.value);
-    eosio::check(iterator == profiletbl.end(), "User already exists"); // Do we want to check for this ????
 
     // Argument Checks
     eosio::check( display_name.size() <= MAX_DISPLAY_NAME_SIZE, "display name is too long. MAX_DISPLAY_NAME_SIZE= 30");
@@ -35,19 +30,6 @@ void profile::insert(name user, std::string display_name, ipfshash_t about_me, a
     
 }
 
-
-
-[[eosio::action]]
-void profile::erase(name user) {
-    require_auth(user);
-    
-    profile_index profiles( get_self(), _self.value);
-    
-    auto iterator = profiles.find(user.value);
-    eosio::check(iterator != profiles.end(), "Record does not exist");
-    // profiles.erase(iterator);
-    // send_summary(user, " successfully erased record from profiles");
-}
 
 
 
