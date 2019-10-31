@@ -3,7 +3,7 @@
 using namespace eosio;
 
 [[eosio::action]]
-void profilectr::insert(name user, std::string display_name, ipfshash_t about_me, address_t location, ipfshash_t img, std::vector<language_t> languages, std::vector<platform_t> platforms) {
+void profilectr::userinsert(name user, std::string display_name, ipfshash_t about_me, address_t location, ipfshash_t img, std::vector<language_t> languages, std::vector<platform_t> platforms) {
     
     require_auth( user );
 

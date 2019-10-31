@@ -42,7 +42,7 @@ public:
     
     // ABI FUNCTIONS
     [[eosio::action]]
-    void insert(name user,
+    void userinsert(name user,
                 std::string display_name,
                 ipfshash_t about_me,
                 address_t location,

@@ -39,7 +39,35 @@
             ]
         },
         {
-            "name": "insert",
+            "name": "language",
+            "base": "",
+            "fields": [
+                {
+                    "name": "lang_code",
+                    "type": "string"
+                },
+                {
+                    "name": "level",
+                    "type": "int32"
+                }
+            ]
+        },
+        {
+            "name": "platform",
+            "base": "",
+            "fields": [
+                {
+                    "name": "platform",
+                    "type": "string"
+                },
+                {
+                    "name": "url",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "userinsert",
             "base": "",
             "fields": [
                 {
@@ -71,40 +99,12 @@
                     "type": "platform_t[]"
                 }
             ]
-        },
-        {
-            "name": "language",
-            "base": "",
-            "fields": [
-                {
-                    "name": "lang_code",
-                    "type": "string"
-                },
-                {
-                    "name": "level",
-                    "type": "int32"
-                }
-            ]
-        },
-        {
-            "name": "platform",
-            "base": "",
-            "fields": [
-                {
-                    "name": "platform",
-                    "type": "string"
-                },
-                {
-                    "name": "url",
-                    "type": "string"
-                }
-            ]
         }
     ],
     "actions": [
         {
-            "name": "insert",
-            "type": "insert",
+            "name": "userinsert",
+            "type": "userinsert",
             "ricardian_contract": ""
         }
     ],
