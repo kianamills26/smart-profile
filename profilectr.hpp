@@ -6,8 +6,8 @@
 using namespace eosio;
 
 // Constants
-const uint64_t MAX_IPFS_SIZE = 46;
-const uint64_t MIN_IPFS_SIZE = 46;
+const uint64_t MAX_IMG_SIZE = 400;
+const uint64_t MAX_ABOUTME_SIZE = 300;
 const uint64_t MAX_LANG_CODE_SIZE = 7;
 const uint64_t MIN_LANG_CODE_SIZE = 2;
 const uint64_t MAX_PLATFORM_SIZE = 20;
@@ -36,17 +36,15 @@ typedef struct platform{
 class [[eosio::contract("profilectr")]] profilectr: public eosio::contract {
 public:
     
-    using ipfshash_t = std::string;
-    
     profilectr( name receiver, name code, datastream<const char*> ds ) : contract(receiver, code, ds) {}
     
     // ABI FUNCTIONS
     [[eosio::action]]
     void userinsert(name user,
                 std::string display_name,
-                ipfshash_t about_me,
+                std::string about_me,
                 address_t location,
-                ipfshash_t img,
+                std::string img,
                 std::vector<language_t> languages,
                 std::vector<platform_t> platforms);
    

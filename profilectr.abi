@@ -7,10 +7,6 @@
             "type": "address"
         },
         {
-            "new_type_name": "ipfshash_t",
-            "type": "string"
-        },
-        {
             "new_type_name": "language_t",
             "type": "language"
         },
@@ -80,7 +76,7 @@
                 },
                 {
                     "name": "about_me",
-                    "type": "ipfshash_t"
+                    "type": "string"
                 },
                 {
                     "name": "location",
@@ -88,7 +84,7 @@
                 },
                 {
                     "name": "img",
-                    "type": "ipfshash_t"
+                    "type": "string"
                 },
                 {
                     "name": "languages",
