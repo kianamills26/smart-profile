@@ -101,7 +101,7 @@
         {
             "name": "userinsert",
             "type": "userinsert",
-            "ricardian_contract": ""
+            "ricardian_contract": "Insert a user's profile"
         }
     ],
     "tables": [],
